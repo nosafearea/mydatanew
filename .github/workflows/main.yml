@@ -1,0 +1,16 @@
+name: CI
+on:   
+  push: 
+jobs: 
+ build: 
+    runs-on: ubuntu-22.04
+    timeout-minutes: 350
+  
+    steps: 
+    - uses: actions/checkout@v3
+    - name: build1
+      continue-on-error: true 
+      run: sudo bash build1.sh
+    - name: build2
+      continue-on-error: true 
+      run: sudo bash build2.sh
