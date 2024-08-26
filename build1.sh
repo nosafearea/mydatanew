@@ -2,7 +2,7 @@ echo "Download ngrok"
 wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
 tar -xvzf ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
 chmod +x ngrok
-./ngrok authtoken 2R0n3Bb23N0iVSOMhAACIG0HWqY_5zacqzwzoybyWaYxPHLrj
+./ngrok authtoken 2R0vUMRwxq33ieabcPEJVQG7fjL_3smyDxYvecaSyPHyEyprY
 ./ngrok tcp 3389 >/dev/null 2>&1 >/dev/null &
 echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections >/dev/null 2>&1
 sudo apt-get install -y -q
@@ -34,3 +34,4 @@ sudo sed -i.bak '/fi/a lxde-session \n' /etc/xrdp/startwm.sh > /dev/null 2>&1
 #sudo sed -i.bak '/fi/a xfce4-session \n' /etc/xrdp/startwm.sh > /dev/null 2>&1
 sudo service xrdp start > /dev/null 2>&1
 sleep 3
+sudo ss -ltnp
