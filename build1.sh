@@ -3,7 +3,7 @@ wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz > /
 tar -xvzf ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
 chmod +x ngrok
 ./ngrok authtoken 2S2HPjPLuix1dT4dvXxidSZANZ9_5zrZa7gpdkhcWfK3HRhUw
-./ngrok tcp 3330 >/dev/null 2>&1 >/dev/null &
-docker run -d --name rdp --shm-size 5g -p 3330:3389 danielguerra/alpine-xfce4-xrdp
+./ngrok http 5800 >/dev/null 2>&1 >/dev/null &
+docker run -d --name=chromium1 -p 5800:5800 -v /docker/appdata/chromium1:/config:rw --shm-size 5g overclockedllama/docker-chromium
 sleep 2
 sudo ss -ltnp
