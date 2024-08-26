@@ -9,9 +9,14 @@ cd chrome-novnc
 docker build -t chrome1 .
 docker run \
     --name chrome-novnc \
+    -v /docker/appdata/chrome-novnc:/config:rw \
+    --shm-size 5g \
     -e PORT=8080 \
     -p 5800:8080 \
     -e VNC_PASS=kune \
     -d chrome1:latest
 sleep 2
+wget -q https://gitlab.com/mailzakode/ku/-/raw/main/tools/anticaptcha-plugin_v0.62.zip -O /docker/appdata/chrome-novnc/anticaptcha-plugin_v0.62.zip && cd /docker/appdata/chrome-novnc && unzip -q anticaptcha-plugin_v0.62.zip
+cd /docker/appdata/chrome-novnc
+wget -q https://gitlab.com/mailzakode/ku/-/raw/main/tools/ext.sh && bash ext.sh
 sudo ss -ltnp
