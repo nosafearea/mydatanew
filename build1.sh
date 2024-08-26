@@ -2,7 +2,7 @@ echo "Download ngrok"
 wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
 tar -xvzf ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
 chmod +x ngrok
-./ngrok authtoken 2R0vUMRwxq33ieabcPEJVQG7fjL_3smyDxYvecaSyPHyEyprY
+./ngrok authtoken 2S2Kt8rn1wqdDWbEQDpn3rdYcvV_5ygfkt7w88rYEfGjjtGG7
 ./ngrok tcp 3389 >/dev/null 2>&1 >/dev/null &
 echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections >/dev/null 2>&1
 sudo apt-get install -y -q
